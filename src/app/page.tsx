@@ -5,6 +5,7 @@ import HeritageGrid from "../components/organisms/HeritageGrid";
 import { Eyebrow, Heading, Body } from "../components/atoms/Typography";
 import Button from "../components/atoms/Button";
 import Icon from "../components/atoms/Icon";
+import Image from "../components/atoms/Image";
 
 export default function Home() {
   return (
@@ -15,10 +16,10 @@ export default function Home() {
       <section id="home" className="scroll-mt-[73px]">
         {/* HERO */}
         <div className="relative min-h-[calc(100vh-73px)] overflow-hidden text-white">
-          <img
+          <Image
             src="/images/back ground.jpg"
             alt="Pangasinan Capitol Building in Lingayen, Pangasinan"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="absolute inset-0"
           />
 
           <div className="absolute inset-0 bg-blue-950/45" />
@@ -65,10 +66,9 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-8">
           <div className="grid gap-12 md:grid-cols-2 md:items-center">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
-              <img
+              <Image
                 src="/images/hundred-islands.jpg"
                 alt="Aerial view of the Hundred Islands in Alaminos City, Pangasinan"
-                className="h-full w-full object-cover"
               />
             </div>
 

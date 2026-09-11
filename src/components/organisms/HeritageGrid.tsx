@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { heritageSites, type HeritageSite } from "../../lib/heritageSites";
+import { withBasePath } from "../../lib/basePath";
 import { Eyebrow, Heading, Body } from "../atoms/Typography";
 import Button from "../atoms/Button";
 import Image from "../atoms/Image";
@@ -93,7 +94,7 @@ export default function HeritageGrid() {
     <section id="heritage" className="scroll-mt-[73px]">
       <div className="relative overflow-hidden bg-blue-950 px-6 py-20 text-white md:px-8">
         <img
-          src="/images/hundred-islands.jpg"
+          src={withBasePath("/images/hundred-islands.jpg")}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover opacity-25"

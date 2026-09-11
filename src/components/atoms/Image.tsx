@@ -1,3 +1,5 @@
+import { withBasePath } from "../../lib/basePath";
+
 /**
  * Image (atom)
  * ---------------------------------------------------------------
@@ -28,6 +30,15 @@
  * breakpoints (grid columns going 1 → 2 → 3, the Hero being
  * `min-h-[calc(100vh-73px)]`, …); Image itself has no opinion on layout,
  * only on how its pixels map into whatever box it's given.
+ *
+ * `src` is run through withBasePath() before rendering — this app is
+ * deployed to a GitHub Pages *project* site under /pangasinan-heritage/,
+ * not the domain root, and a plain `<img src="/images/foo.jpg">` (what
+ * every call site passes in, since site data and JSX both just use
+ * root-absolute paths) would otherwise 404 in production. Centralizing
+ * that prefixing here means every caller can keep writing plain
+ * `/images/...` paths and never has to think about the deployment
+ * target.
  */
 export default function Image({
   src,
@@ -42,7 +53,7 @@ export default function Image({
 }) {
   return (
     <img
-      src={src}
+      src={withBasePath(src)}
       alt={alt}
       className={`h-full w-full ${fit === "contain" ? "bg-slate-100 object-contain" : "object-cover"} ${className}`.trim()}
     />
